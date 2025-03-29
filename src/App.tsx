@@ -9,12 +9,14 @@ type SearchResult = {
   description: string;
   type: ContentType;
   date?: string;
+  image?: string;
 };
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState('relevance');
   const [showMobileFilters, setShowMobileFilters] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [selectedType, setSelectedType] = useState<ContentType>('all');
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [expandedCategories, setExpandedCategories] = useState<string[]>(['Degree Programs']);
@@ -53,7 +55,8 @@ function App() {
       title: 'Master of Advanced Management Program',
       url: 'https://som.yale.edu/programs/mam',
       description: 'A one-year program for exceptional MBA graduates from Global Network for Advanced Management member schools.',
-      type: 'programs'
+      type: 'programs',
+      image: 'https://som.yale.edu/sites/default/files/styles/square_1280/public/2023-05/_DSC6264.jpg.webp?itok=3CEp6ZBH'
     }
   ];
 
@@ -113,21 +116,31 @@ function App() {
               <img 
                 src="/assets/yalesom_logo_horizontal-min.svg" 
                 alt="Yale School of Management" 
-                className="h-8"
+                className="h-12"
               />
             </div>
             <div className="flex items-center gap-4">
-              <button 
-                onClick={() => setShowMobileFilters(!showMobileFilters)}
-                className="p-2 hover:bg-gray-100 rounded-lg md:hidden flex items-center gap-2"
-              >
-                <Filter size={20} />
-                <span className="text-sm font-medium">Filters</span>
-              </button>
-              <button className="hidden md:flex items-center gap-2 px-4 py-2 text-[#00356B] hover:bg-gray-50 rounded-lg">
-                <Menu size={20} />
-                <span className="text-sm font-medium">Menu</span>
-              </button>
+              <div className="relative">
+                <button 
+                  onClick={() => setShowMobileMenu(!showMobileMenu)}
+                  className="flex items-center gap-2 px-4 py-2 text-[#00356B] hover:bg-gray-50 rounded-lg"
+                >
+                  <Menu size={24} />
+                </button>
+                {showMobileMenu && (
+                  <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-30">
+                    <nav className="space-y-1">
+                      <a href="/programs" className="block px-4 py-2 text-[#00356B] hover:bg-gray-50 text-sm font-medium">Programs</a>
+                      <a href="/experience" className="block px-4 py-2 text-[#00356B] hover:bg-gray-50 text-sm font-medium">The SOM Experience</a>
+                      <a href="/centers" className="block px-4 py-2 text-[#00356B] hover:bg-gray-50 text-sm font-medium">Centers & Initiatives</a>
+                      <a href="/faculty" className="block px-4 py-2 text-[#00356B] hover:bg-gray-50 text-sm font-medium">Faculty & Research</a>
+                      <a href="/executive" className="block px-4 py-2 text-[#00356B] hover:bg-gray-50 text-sm font-medium">Executive Education</a>
+                      <a href="/alumni" className="block px-4 py-2 text-[#00356B] hover:bg-gray-50 text-sm font-medium">Alumni</a>
+                      <a href="/about" className="block px-4 py-2 text-[#00356B] hover:bg-gray-50 text-sm font-medium">About</a>
+                    </nav>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
@@ -149,23 +162,41 @@ function App() {
         </div>
 
         {/* Content Type Navigation */}
-        <div className="mb-8 border-b border-gray-200 overflow-x-auto">
-          <div className="flex gap-4 min-w-max">
-            {contentTypes.map(type => (
-              <button
-                key={type.id}
-                onClick={() => setSelectedType(type.id as ContentType)}
-                className={`flex items-center gap-2 px-4 py-3 border-b-2 transition-colors ${
-                  selectedType === type.id 
-                    ? 'border-[#00356B] text-[#00356B]' 
-                    : 'border-transparent text-gray-600 hover:text-[#00356B]'
-                }`}
-              >
-                <type.icon size={20} />
-                <span>{type.label}</span>
-              </button>
-            ))}
+        <div className="mb-8 border-b border-gray-200">
+          <div className="overflow-x-auto -mx-4 px-4 md:overflow-visible md:px-0 md:-mx-0">
+            <div className="flex gap-6 min-w-max md:min-w-0">
+              {contentTypes.map(type => (
+                <button
+                  key={type.id}
+                  onClick={() => setSelectedType(type.id as ContentType)}
+                  className={`flex items-center gap-2 px-1 py-4 border-b-2 transition-colors relative -mb-[1px] ${
+                    selectedType === type.id 
+                      ? 'border-[#00356B] text-[#00356B] font-medium' 
+                      : 'border-transparent text-gray-600 hover:text-[#00356B]'
+                  }`}
+                >
+                  <type.icon size={20} className="flex-shrink-0" />
+                  <span className="text-sm whitespace-nowrap">{type.label}</span>
+                </button>
+              ))}
+            </div>
           </div>
+        </div>
+
+        {/* Mobile Filter Button */}
+        <div className="md:hidden mb-6">
+          <button
+            onClick={() => setShowMobileFilters(!showMobileFilters)}
+            className="flex items-center gap-2 px-4 py-2 text-[#00356B] border border-[#00356B] rounded-lg hover:bg-gray-50"
+          >
+            <Filter size={20} />
+            <span className="font-medium">Filters</span>
+            {selectedFilters.length > 0 && (
+              <span className="bg-[#00356B] text-white text-sm px-2 py-0.5 rounded-full">
+                {selectedFilters.length}
+              </span>
+            )}
+          </button>
         </div>
 
         {/* Mobile Filters Overlay */}
@@ -173,7 +204,7 @@ function App() {
           <div className="fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden">
             <div className="absolute inset-y-0 right-0 w-full max-w-sm bg-white shadow-xl">
               <div className="p-4 border-b border-gray-200 flex justify-between items-center">
-                <h3 className="font-bold text-lg">Filters</h3>
+                <h3 className="font-bold text-lg text-[#00356B]">Filters</h3>
                 <button
                   onClick={() => setShowMobileFilters(false)}
                   className="p-2 hover:bg-gray-100 rounded-lg"
@@ -183,7 +214,30 @@ function App() {
               </div>
               <div className="p-4 overflow-y-auto max-h-[calc(100vh-5rem)]">
                 {Object.entries(filters).map(([category, options]) => (
-                  <FilterSection key={category} category={category} options={options} />
+                  <div key={category} className="border-b border-gray-200 last:border-0">
+                    <button
+                      onClick={() => toggleCategory(category)}
+                      className="w-full py-3 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                    >
+                      <h4 className="font-semibold text-[#00356B]">{category}</h4>
+                      {expandedCategories.includes(category) ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                    </button>
+                    {expandedCategories.includes(category) && (
+                      <div className="space-y-2 pb-4">
+                        {options.map(option => (
+                          <label key={option} className="flex items-center gap-2 cursor-pointer px-2 py-1.5 hover:bg-gray-50 rounded">
+                            <input
+                              type="checkbox"
+                              checked={selectedFilters.includes(option)}
+                              onChange={() => toggleFilter(option)}
+                              className="rounded border-gray-300 text-[#00356B] focus:ring-[#00356B]"
+                            />
+                            <span className="text-sm text-gray-700">{option}</span>
+                          </label>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>
@@ -255,32 +309,43 @@ function App() {
 
             <div className="space-y-8">
               {results.map((result, index) => (
-                <div key={index} className="group">
+                <article key={index} className={`group border-b border-gray-200 pb-8 last:border-0 ${result.type === 'programs' ? 'bg-gray-50 p-6 rounded-lg border' : ''}`}>
                   <a href={result.url} className="block">
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h3 className="text-xl font-neue-haas font-bold text-[#00356B] group-hover:text-[#0066CC] mb-3">
+                    <div className={`${result.type === 'programs' ? 'md:flex md:gap-6' : ''}`}>
+                      {result.type === 'programs' && result.image && (
+                        <div className="mb-4 md:mb-0 md:w-1/3 flex-shrink-0">
+                          <img 
+                            src={result.image} 
+                            alt={result.title}
+                            className="w-full h-48 object-cover rounded-lg"
+                          />
+                        </div>
+                      )}
+                      <div className={result.type === 'programs' ? 'md:flex-1' : ''}>
+                        {/* Metadata line */}
+                        <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
+                          {result.date && (
+                            <>
+                              <span>{result.date}</span>
+                              <span className="text-gray-300">|</span>
+                            </>
+                          )}
+                          <span className="capitalize">{result.type}</span>
+                        </div>
+                        
+                        {/* Title */}
+                        <h3 className="text-[22px] leading-[1.2] font-neue-haas font-bold text-[#00356B] group-hover:text-[#0066CC] mb-3">
                           {result.title}
                         </h3>
-                        <p className="text-gray-600 font-yale text-lg mb-3">
+                        
+                        {/* Description */}
+                        <p className="text-lg font-yale text-gray-600 leading-relaxed">
                           {result.description}
                         </p>
-                        <div className="flex items-center gap-4 text-sm text-gray-500">
-                          {result.date && (
-                            <span className="flex items-center gap-1">
-                              <Calendar size={14} />
-                              {result.date}
-                            </span>
-                          )}
-                          <span className="flex items-center gap-1">
-                            <Award size={14} />
-                            {result.type.charAt(0).toUpperCase() + result.type.slice(1)}
-                          </span>
-                        </div>
                       </div>
                     </div>
                   </a>
-                </div>
+                </article>
               ))}
             </div>
           </div>
