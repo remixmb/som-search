@@ -35,7 +35,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
           className="flex items-center gap-2 px-4 py-2 text-[#00356B] border border-[#00356B] rounded-lg hover:bg-gray-50"
         >
           <Filter size={20} />
-          <span className="font-medium">Filters</span>
+          <span className="font-medium font-neue-haas">Filters</span>
           {selectedFilters.length > 0 && (
             <span className="bg-[#00356B] text-white text-sm px-2 py-0.5 rounded-full">
               {selectedFilters.length}
@@ -64,7 +64,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
         `}>
           {showMobileFilters && (
             <div className="flex justify-between items-center mb-4 md:hidden">
-              <h3 className="font-bold text-lg">Filters</h3>
+              <h3 className="font-bold text-lg font-neue-haas">Filters</h3>
               <button 
                 onClick={() => setShowMobileFilters(false)}
                 className="text-gray-500 hover:text-gray-700"
@@ -91,4 +91,4 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
       </div>
     </>
   );
-}; 
+};
