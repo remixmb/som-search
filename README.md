@@ -1,6 +1,6 @@
-# Yale SOM Bolt Search
+# Yale SOM Search Vibe Coding Exploration
 
-This project is a search interface for Yale SOM Bolt.
+This project is a vibe coding exercise for Search Page Improvements
 
 ## Prerequisites
 
