@@ -45,19 +45,19 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
                 )}
               </div>
               
-              <h3 className="text-xl font-bold text-[#000f9f] mb-2 leading-tight">
+              <h3 className="text-xl font-bold text-[#00356B] mb-2 leading-tight font-yale">
                 <a href={result.url} className="hover:underline">
                   {result.title}
                 </a>
               </h3>
               
-              <p className="text-gray-700 line-clamp-2 text-base font-light leading-relaxed">
+              <p className="text-gray-700 line-clamp-2 text-base font-light leading-relaxed font-neue-haas">
                 {result.description}
               </p>
               
               <a 
                 href={result.url} 
-                className="mt-3 inline-block text-[#00356B] font-medium text-sm hover:underline"
+                className="mt-3 inline-block text-[#00356B] font-medium text-sm hover:underline font-neue-haas"
               >
                 Read more
               </a>
