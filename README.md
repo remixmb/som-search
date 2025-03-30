@@ -1,6 +1,10 @@
 # Yale SOM Search Vibe Coding Exploration
 
-This project is a vibe coding exercise for Search Page Improvements
+This project is a modern search interface for Yale School of Management resources.
+
+## Live Demo
+
+Visit the live demo: [https://remixmb.github.io/som-search/](https://remixmb.github.io/som-search/)
 
 ## Prerequisites
 
@@ -11,8 +15,8 @@ This project is a vibe coding exercise for Search Page Improvements
 
 1. Clone the repository:
    ```bash
-   git clone [your-repository-url]
-   cd bolt-search-yale
+   git clone https://github.com/remixmb/som-search.git
+   cd som-search
    ```
 
 2. Install dependencies:
@@ -43,6 +47,14 @@ npm run build
 
 The built files will be in the `dist` directory.
 
+## Deployment
+
+This project is configured for automatic deployment to GitHub Pages:
+
+1. Push changes to the `main` branch
+2. GitHub Actions workflow will automatically build and deploy the site
+3. The deployed site will be available at https://remixmb.github.io/som-search/
+
 ## Contributing
 
 1. Create a new branch for your feature
@@ -51,4 +63,4 @@ The built files will be in the `dist` directory.
 
 ## License
 
-[Add your license information here] 
+MIT 
