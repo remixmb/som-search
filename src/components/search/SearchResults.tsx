@@ -23,20 +23,20 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
           <div className="py-6 px-0 flex flex-col md:flex-row gap-5">
             {result.image && (
               <div className="w-full md:w-48 h-40 md:h-32 flex-shrink-0">
-                <img
-                  src={result.image}
-                  alt={result.title}
+                <img 
+                  src={result.image} 
+                  alt={result.title} 
                   className="w-full h-full object-cover rounded"
                 />
               </div>
             )}
-
+            
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-3">
                 <span className="text-[11px] font-bold px-2.5 py-1 bg-gray-100 rounded-full text-gray-700 uppercase tracking-wider font-neue-haas">
                   {result.type}
                 </span>
-
+                
                 {result.date && (
                   <div className="flex items-center text-gray-600 text-sm font-normal font-neue-haas">
                     <Calendar size={14} className="mr-1" />
@@ -44,24 +44,24 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
                   </div>
                 )}
               </div>
-
+              
               <h3 className="text-xl font-bold text-[#00356B] mb-2 leading-tight font-yale">
                 <a href={result.url} className="hover:underline">
                   {result.title}
                 </a>
               </h3>
-
+              
               <p className="text-gray-700 line-clamp-2 text-base font-light leading-relaxed font-neue-haas">
                 {result.description}
               </p>
-
-              <a
-                href={result.url}
+              
+              <a 
+                href={result.url} 
                 className="mt-3 inline-block text-[#00356B] font-medium text-sm hover:underline font-neue-haas"
               >
                 Read more
               </a>
-
+              
               {index < results.length - 1 && (
                 <div className="pt-6">
                   <hr className="border-gray-100" />
