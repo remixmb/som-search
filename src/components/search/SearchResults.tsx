@@ -45,7 +45,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
                 )}
               </div>
               
-              <h3 className="text-lg font-semibold text-[#00356B] mb-2">
+              <h3 className="text-lg font-semibold text-[#000f9f] mb-2">
                 <a href={result.url} className="hover:underline">
                   {result.title}
                 </a>
@@ -57,7 +57,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
               
               <a 
                 href={result.url} 
-                className="mt-3 inline-block text-[#00356B] font-medium text-sm hover:underline"
+                className="mt-3 inline-block text-[#000f9f] font-medium text-sm hover:underline"
               >
                 Read more
               </a>
