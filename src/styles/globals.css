@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --yale-blue: #00356b;
+    --yale-accent: #286dc0;
+  }
+  
+  html {
+    @apply text-gray-900;
+  }
+  
+  body {
+    @apply bg-gray-50;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#00356B] text-white px-4 py-2 rounded-lg hover:bg-[#002044] transition-colors;
+  }
+  
+  .btn-outline {
+    @apply border border-[#00356B] text-[#00356B] px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors;
+  }
+} 
