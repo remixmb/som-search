@@ -49,11 +49,22 @@ The built files will be in the `dist` directory.
 
 ## Deployment
 
-This project is configured for automatic deployment to GitHub Pages:
+This project is deployed on GitHub Pages at: [https://remixmb.github.io/som-search/](https://remixmb.github.io/som-search/)
 
-1. Push changes to the `main` branch
-2. GitHub Actions workflow will automatically build and deploy the site
-3. The deployed site will be available at https://remixmb.github.io/som-search/
+### Deployment Configuration
+
+- The site is automatically deployed using GitHub Actions whenever changes are pushed to the main branch
+- The workflow is defined in `.github/workflows/deploy.yml`
+- It uses the [JamesIves/github-pages-deploy-action](https://github.com/JamesIves/github-pages-deploy-action) to deploy to GitHub Pages
+- Vite is configured with a base path of `/som-search/` in `vite.config.ts`
+
+### Manual Deployment
+
+If you need to manually trigger a deployment:
+
+1. Go to the GitHub repository
+2. Navigate to Actions → Deploy to GitHub Pages
+3. Click "Run workflow"
 
 ## Contributing
 
