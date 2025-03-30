@@ -10,8 +10,8 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
   if (results.length === 0) {
     return (
       <div className="bg-white p-6 text-center">
-        <h3 className="text-lg font-semibold text-gray-700 mb-2">No results found</h3>
-        <p className="text-gray-500">Try adjusting your search or filters to find what you're looking for.</p>
+        <h3 className="text-lg font-semibold text-gray-700 mb-2 font-neue-haas">No results found</h3>
+        <p className="text-gray-500 font-yale">Try adjusting your search or filters to find what you're looking for.</p>
       </div>
     );
   }
