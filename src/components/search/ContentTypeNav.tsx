@@ -7,9 +7,9 @@ interface ContentTypeNavProps {
   setSelectedType: (type: ContentType) => void;
 }
 
-export const ContentTypeNav: React.FC<ContentTypeNavProps> = ({ 
-  selectedType, 
-  setSelectedType 
+export const ContentTypeNav: React.FC<ContentTypeNavProps> = ({
+  selectedType,
+  setSelectedType
 }) => {
   const contentTypes: ContentTypeOption[] = [
     { id: 'all', label: 'All Content', icon: BookOpen },
@@ -27,18 +27,17 @@ export const ContentTypeNav: React.FC<ContentTypeNavProps> = ({
             <button
               key={type.id}
               onClick={() => setSelectedType(type.id)}
-              className={`flex items-center gap-2 px-1 py-4 border-b-2 transition-colors relative -mb-[1px] ${
-                selectedType === type.id 
-                  ? 'border-[#00356B] text-[#00356B] font-medium' 
+              className={`flex items-center gap-2 px-1 py-4 border-b-2 transition-colors relative -mb-[1px] ${selectedType === type.id
+                  ? 'border-[#00356B] text-[#00356B] font-medium'
                   : 'border-transparent text-gray-600 hover:text-[#00356B]'
-              }`}
+                }`}
             >
               <type.icon size={20} className="flex-shrink-0" />
-              <span className="text-sm whitespace-nowrap">{type.label}</span>
+              <span className="text-sm whitespace-nowrap font-neue-haas">{type.label}</span>
             </button>
           ))}
         </div>
       </div>
     </div>
   );
-}; 
+};
