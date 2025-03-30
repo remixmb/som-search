@@ -61,9 +61,14 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
               >
                 Read more
               </a>
+              
+              {index < results.length - 1 && (
+                <div className="pt-6">
+                  <hr className="border-gray-200" />
+                </div>
+              )}
             </div>
           </div>
-          {index < results.length - 1 && <hr className="border-gray-200" />}
         </div>
       ))}
     </div>
