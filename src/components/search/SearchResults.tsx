@@ -10,8 +10,8 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
   if (results.length === 0) {
     return (
       <div className="bg-white p-6 text-center">
-        <h3 className="text-lg font-semibold text-gray-700 mb-2 font-yale">No results found</h3>
-        <p className="text-gray-500 font-neue-haas">Try adjusting your search or filters to find what you're looking for.</p>
+        <h3 className="text-lg font-semibold text-gray-700 mb-2">No results found</h3>
+        <p className="text-gray-500">Try adjusting your search or filters to find what you're looking for.</p>
       </div>
     );
   }
@@ -33,31 +33,31 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
             
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-[11px] font-bold px-2.5 py-1 bg-gray-100 rounded-full text-gray-700 uppercase tracking-wider font-neue-haas">
+                <span className="text-[11px] font-bold px-2.5 py-1 bg-gray-100 rounded-full text-gray-700 uppercase tracking-wider">
                   {result.type}
                 </span>
                 
                 {result.date && (
-                  <div className="flex items-center text-gray-600 text-sm font-normal font-neue-haas">
+                  <div className="flex items-center text-gray-600 text-sm font-normal">
                     <Calendar size={14} className="mr-1" />
                     {result.date}
                   </div>
                 )}
               </div>
               
-              <h3 className="text-xl font-bold text-[#00356B] mb-2 leading-tight font-yale">
+              <h3 className="text-xl font-bold text-[#00356B] mb-2 leading-tight">
                 <a href={result.url} className="hover:underline">
                   {result.title}
                 </a>
               </h3>
               
-              <p className="text-gray-700 line-clamp-2 text-base font-light leading-relaxed font-neue-haas">
+              <p className="text-gray-700 line-clamp-2 text-base font-light leading-relaxed">
                 {result.description}
               </p>
               
               <a 
                 href={result.url} 
-                className="mt-3 inline-block text-[#00356B] font-medium text-sm hover:underline font-neue-haas"
+                className="mt-3 inline-block text-[#00356B] font-medium text-sm hover:underline"
               >
                 Read more
               </a>
