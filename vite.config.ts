@@ -7,5 +7,5 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
-  base: '/bolt-search-yale/', // Your repo name
+  base: '/som-search/', // Your repo name
 });
