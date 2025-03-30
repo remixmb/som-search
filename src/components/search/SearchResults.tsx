@@ -20,51 +20,51 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
     <div className="space-y-0">
       {results.map((result, index) => (
         <div key={index}>
-          <div className="p-6 flex flex-col md:flex-row gap-4">
+          <div className="py-6 px-0 flex flex-col md:flex-row gap-5">
             {result.image && (
-              <div className="w-full md:w-48 h-40 md:h-auto flex-shrink-0">
+              <div className="w-full md:w-48 h-40 md:h-32 flex-shrink-0">
                 <img 
                   src={result.image} 
                   alt={result.title} 
-                  className="w-full h-full object-cover rounded-md"
+                  className="w-full h-full object-cover rounded"
                 />
               </div>
             )}
             
             <div className="flex-1">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-xs font-medium px-2 py-1 bg-gray-100 rounded-full text-gray-600 uppercase">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-[11px] font-bold px-2.5 py-1 bg-gray-100 rounded-full text-gray-700 uppercase tracking-wider">
                   {result.type}
                 </span>
                 
                 {result.date && (
-                  <div className="flex items-center text-gray-500 text-sm">
+                  <div className="flex items-center text-gray-600 text-sm font-normal">
                     <Calendar size={14} className="mr-1" />
                     {result.date}
                   </div>
                 )}
               </div>
               
-              <h3 className="text-lg font-semibold text-[#000f9f] mb-2">
+              <h3 className="text-xl font-bold text-[#00356B] mb-2 leading-tight">
                 <a href={result.url} className="hover:underline">
                   {result.title}
                 </a>
               </h3>
               
-              <p className="text-gray-600 line-clamp-3">
+              <p className="text-gray-700 line-clamp-2 text-base font-light leading-relaxed">
                 {result.description}
               </p>
               
               <a 
                 href={result.url} 
-                className="mt-3 inline-block text-[#000f9f] font-medium text-sm hover:underline"
+                className="mt-3 inline-block text-[#00356B] font-medium text-sm hover:underline"
               >
                 Read more
               </a>
               
               {index < results.length - 1 && (
                 <div className="pt-6">
-                  <hr className="border-gray-200" />
+                  <hr className="border-gray-100" />
                 </div>
               )}
             </div>
