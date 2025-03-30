@@ -9,7 +9,7 @@ interface SearchResultsProps {
 export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
   if (results.length === 0) {
     return (
-      <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 text-center">
+      <div className="bg-white p-6 text-center">
         <h3 className="text-lg font-semibold text-gray-700 mb-2">No results found</h3>
         <p className="text-gray-500">Try adjusting your search or filters to find what you're looking for.</p>
       </div>
@@ -17,50 +17,53 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-0">
       {results.map((result, index) => (
-        <div key={index} className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 flex flex-col md:flex-row gap-4">
-          {result.image && (
-            <div className="w-full md:w-48 h-40 md:h-auto flex-shrink-0">
-              <img 
-                src={result.image} 
-                alt={result.title} 
-                className="w-full h-full object-cover rounded-md"
-              />
-            </div>
-          )}
-          
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-xs font-medium px-2 py-1 bg-gray-100 rounded-full text-gray-600 uppercase">
-                {result.type}
-              </span>
+        <div key={index}>
+          <div className="p-6 flex flex-col md:flex-row gap-4">
+            {result.image && (
+              <div className="w-full md:w-48 h-40 md:h-auto flex-shrink-0">
+                <img 
+                  src={result.image} 
+                  alt={result.title} 
+                  className="w-full h-full object-cover rounded-md"
+                />
+              </div>
+            )}
+            
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-xs font-medium px-2 py-1 bg-gray-100 rounded-full text-gray-600 uppercase">
+                  {result.type}
+                </span>
+                
+                {result.date && (
+                  <div className="flex items-center text-gray-500 text-sm">
+                    <Calendar size={14} className="mr-1" />
+                    {result.date}
+                  </div>
+                )}
+              </div>
               
-              {result.date && (
-                <div className="flex items-center text-gray-500 text-sm">
-                  <Calendar size={14} className="mr-1" />
-                  {result.date}
-                </div>
-              )}
-            </div>
-            
-            <h3 className="text-lg font-semibold text-[#00356B] mb-2">
-              <a href={result.url} className="hover:underline">
-                {result.title}
+              <h3 className="text-lg font-semibold text-[#00356B] mb-2">
+                <a href={result.url} className="hover:underline">
+                  {result.title}
+                </a>
+              </h3>
+              
+              <p className="text-gray-600 line-clamp-3">
+                {result.description}
+              </p>
+              
+              <a 
+                href={result.url} 
+                className="mt-3 inline-block text-[#00356B] font-medium text-sm hover:underline"
+              >
+                Read more
               </a>
-            </h3>
-            
-            <p className="text-gray-600 line-clamp-3">
-              {result.description}
-            </p>
-            
-            <a 
-              href={result.url} 
-              className="mt-3 inline-block text-[#00356B] font-medium text-sm hover:underline"
-            >
-              Read more
-            </a>
+            </div>
           </div>
+          {index < results.length - 1 && <hr className="border-gray-200" />}
         </div>
       ))}
     </div>
