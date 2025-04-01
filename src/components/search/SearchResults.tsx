@@ -1,6 +1,6 @@
 import React from 'react';
 import { SearchResult } from '../../types';
-import { Calendar, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 interface SearchResultsProps {
   results: SearchResult[];
@@ -37,9 +37,8 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
                   {result.type}
                 </span>
 
-                {result.date && (
+                {result.date && result.type !== 'programs' && result.type !== 'centers' && (
                   <div className="flex items-center text-gray-600 text-sm font-normal">
-                    <Calendar size={14} className="mr-1" />
                     {result.date}
                   </div>
                 )}
