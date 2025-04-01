@@ -7,6 +7,11 @@ export type SearchResult = {
   type: ContentType;
   date?: string;
   image?: string;
+  applyUrl?: string;
+  programStats?: Array<{
+    label: string;
+    value: string;
+  }>;
 };
 
 export interface ContentTypeOption {

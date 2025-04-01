@@ -1,6 +1,6 @@
 import React from 'react';
 import { SearchResult } from '../../types';
-import { Calendar } from 'lucide-react';
+import { Calendar, ExternalLink } from 'lucide-react';
 
 interface SearchResultsProps {
   results: SearchResult[];
@@ -55,12 +55,36 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
                 {result.description}
               </p>
 
-              <a
-                href={result.url}
-                className="mt-3 inline-block text-[#00356B] font-medium text-sm hover:underline font-neue-haas"
-              >
-                Read more
-              </a>
+              {/* Display program statistics for program type */}
+              {result.type === 'programs' && result.programStats && (
+                <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-2">
+                  {result.programStats.map((stat, statIndex) => (
+                    <div key={statIndex} className="flex flex-col">
+                      <span className="text-xs text-gray-500">{stat.label}</span>
+                      <span className="text-sm font-medium">{stat.value}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              <div className="mt-4 flex flex-wrap gap-3">
+                <a
+                  href={result.url}
+                  className="inline-flex items-center text-[#00356B] font-medium text-sm hover:underline font-neue-haas"
+                >
+                  Read more
+                </a>
+
+                {/* Apply button for programs */}
+                {result.type === 'programs' && result.applyUrl && (
+                  <a
+                    href={result.applyUrl}
+                    className="inline-flex items-center px-4 py-2 bg-[#00356B] text-white rounded-md text-sm font-medium hover:bg-[#002143] transition-colors"
+                  >
+                    Apply <ExternalLink size={14} className="ml-1" />
+                  </a>
+                )}
+              </div>
 
               {index < results.length - 1 && (
                 <div className="pt-6">
