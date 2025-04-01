@@ -21,6 +21,7 @@ export const FilterSidebar: React.FC<FilterSidebarProps> = ({
 }) => {
   const filters = {
     'Degree Programs': ['MBA', 'MBA for Executives', 'Master of Advanced Management', 'Master\'s in Asset Management', 'Master\'s in Global Business & Society'],
+    'Centers & Initiatives': ['Program on Financial Stability', 'Chief Executive Leadership Institute', 'Program on Stakeholder Innovation', 'Center for Customer Insights', 'Program on Social Enterprise', 'International Center for Finance'],
     'Academic Areas': ['Accounting', 'Economics', 'Finance', 'Marketing', 'Operations', 'Organizational Behavior'],
     'Research Topics': ['Healthcare', 'Sustainability', 'Innovation', 'Global Markets', 'Leadership', 'Social Impact'],
     'Content Type': ['Articles', 'Case Studies', 'Working Papers', 'Events', 'Media Mentions']

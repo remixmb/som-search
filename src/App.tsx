@@ -4,6 +4,7 @@ import { SearchBar } from './components/search/SearchBar';
 import { ContentTypeNav } from './components/search/ContentTypeNav';
 import { FilterSidebar } from './components/search/FilterSidebar';
 import { SearchResults } from './components/search/SearchResults';
+import { SortSelector } from './components/search/SortSelector';
 import { useSearch } from './hooks/useSearch';
 import { useExpandable } from './hooks/useExpandable';
 
@@ -13,6 +14,8 @@ function App() {
   const {
     searchQuery,
     setSearchQuery,
+    sortBy,
+    setSortBy,
     selectedType,
     setSelectedType,
     selectedFilters,
@@ -23,7 +26,7 @@ function App() {
   const {
     expandedItems: expandedCategories,
     toggleItem: toggleCategory,
-  } = useExpandable(['Degree Programs']);
+  } = useExpandable(['Degree Programs', 'Centers & Initiatives']);
 
   return (
     <div className="min-h-screen bg-white">
@@ -55,6 +58,7 @@ function App() {
 
           {/* Results */}
           <div className="md:col-span-3">
+            <SortSelector sortBy={sortBy} setSortBy={setSortBy} />
             <SearchResults results={results} />
           </div>
         </div>

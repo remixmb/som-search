@@ -401,26 +401,61 @@ export function useSearch() {
       return false;
     }
     
-    // Apply selected filters (if any)
-    if (selectedFilters.length > 0) {
-      // This is a simplified implementation - in a real app, 
-      // filters would be more complex and possibly nested
-      const resultTags = [
-        result.type, 
-        result.date ? new Date(result.date).getFullYear().toString() : null
-      ].filter(Boolean);
+    // If there are no filters, return all results
+    if (selectedFilters.length === 0) {
+      return true;
+    }
+    
+    // For each result, get its related tags for filtering
+    const resultTags = [
+      result.type,
+      result.title,
+      ...(result.programStats?.map(stat => stat.value) || []),
+      result.date ? new Date(result.date).getFullYear().toString() : null
+    ].filter(Boolean);
+    
+    // Check if any of the selected filters match tags for this result
+    return selectedFilters.some(filter => {
+      // Direct match
+      if (resultTags.includes(filter)) return true;
       
-      // Check if any of the selected filters match tags for this result
-      if (!selectedFilters.some(filter => resultTags.includes(filter))) {
-        return false;
+      // Special case for MBA program
+      if (filter === 'MBA' && 
+          (result.title.includes('MBA') || 
+           result.description.toLowerCase().includes('mba') ||
+           resultTags.some(tag => tag && tag.includes('MBA')))) {
+        return true;
+      }
+      
+      // Check if filter is contained in title or description
+      if (result.title.includes(filter) || 
+          result.description.includes(filter)) {
+        return true;
+      }
+      
+      // Check program centers
+      if ((filter.includes('Program on') || filter.includes('Center for') || filter.includes('Institute')) && 
+          result.title.includes(filter.split(' ').slice(-1)[0])) {
+        return true;
+      }
+      
+      return false;
+    });
+  });
+
+  // Sort the results based on sortBy value and filter relevance
+  const results = [...filteredResults].sort((a, b) => {
+    // First, prioritize exact matches to selected filters
+    if (selectedFilters.length > 0) {
+      const aMatchCount = countFilterMatches(a, selectedFilters);
+      const bMatchCount = countFilterMatches(b, selectedFilters);
+      
+      if (aMatchCount !== bMatchCount) {
+        return bMatchCount - aMatchCount; // Higher match count first
       }
     }
     
-    return true;
-  });
-
-  // Sort the results based on sortBy value
-  const results = [...filteredResults].sort((a, b) => {
+    // Then apply the sortBy logic
     if (sortBy === 'date') {
       // Sort by date (most recent first)
       const dateA = a.date ? new Date(a.date) : new Date(0);
@@ -443,6 +478,47 @@ export function useSearch() {
       return 0;
     }
   });
+
+  // Helper function to count how many filters match a result
+  function countFilterMatches(result: SearchResult, filters: string[]): number {
+    let matches = 0;
+    
+    // Create an array of all the searchable content for a result
+    const resultContent = [
+      result.title,
+      result.description,
+      result.type,
+      ...(result.programStats?.map(stat => stat.value) || [])
+    ];
+    
+    // Count matches
+    for (const filter of filters) {
+      // Exact matches
+      if (result.title === filter || 
+          resultContent.some(content => content === filter)) {
+        matches += 3; // Higher score for exact match
+        continue;
+      }
+      
+      // Special case for MBA
+      if (filter === 'MBA' && 
+         (result.title.includes('MBA') || 
+          result.description.includes('MBA') ||
+          resultContent.some(content => content?.includes('MBA')))) {
+        matches += 2;
+        continue;
+      }
+      
+      // Partial matches
+      if (resultContent.some(content => 
+          content && 
+          (content.includes(filter) || filter.includes(content)))) {
+        matches += 1;
+      }
+    }
+    
+    return matches;
+  }
 
   const toggleFilter = (filter: string) => {
     setSelectedFilters(prev => 
