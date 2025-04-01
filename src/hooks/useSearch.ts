@@ -102,7 +102,7 @@ const mockResults: SearchResult[] = [
     description: 'A two-year program, featuring a distinctive integrated curriculum, Yale-authored "raw" cases, and international study, as well as close engagement in the intellectual life of Yale University.',
     type: 'programs',
     date: 'January 2025',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_1280/public/2023-05/_DSC6264.jpg.webp?itok=3CEp6ZBH',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=MBA+Program',
     applyUrl: 'https://som.yale.edu/programs/mba/admissions/application-information',
     programStats: [
       { label: 'Length of program', value: '2 years' },
@@ -116,7 +116,7 @@ const mockResults: SearchResult[] = [
     description: 'While you continue to advance your career, earn a full MBA degree, with a focus on an area at the nexus of business and society—asset management, healthcare, or sustainability.',
     type: 'programs',
     date: 'March 2025',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_1280/public/2023-05/emba-students.jpg.webp?itok=4Dp7ZBH',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=EMBA+Program',
     applyUrl: 'https://som.yale.edu/programs/emba/admissions/application-information',
     programStats: [
       { label: 'Length of program', value: '22 months' },
@@ -129,7 +129,7 @@ const mockResults: SearchResult[] = [
     description: 'A nine-month program for exceptional MBA graduates of business schools that are members of the Global Network for Advanced Management. Students take a slate of advanced elective courses at Yale SOM and throughout Yale University.',
     type: 'programs',
     date: 'February 2025',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_1280/public/2023-05/_DSC6264.jpg.webp?itok=3CEp6ZBH',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=MAM+Program',
     applyUrl: 'https://som.yale.edu/programs/mam/admissions',
     programStats: [
       { label: 'Length of program', value: '9 months' },
@@ -143,7 +143,7 @@ const mockResults: SearchResult[] = [
     description: 'Early-career students launch their career in asset management through this innovative STEM-eligible program, with instruction from leading finance scholars and practicing investors at some of the world\'s most successful institutions.',
     type: 'programs',
     date: 'January 2025',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_1280/public/2023-05/asset-mgmt-students.jpg.webp?itok=3CEp6ZBH',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=Asset+Management',
     applyUrl: 'https://som.yale.edu/programs/mms-asset-management/admissions',
     programStats: [
       { label: 'Length of program', value: '9 months' },
@@ -156,7 +156,7 @@ const mockResults: SearchResult[] = [
     description: 'After a year of study in a master in management (or equivalent) degree program at a top business school around the world, including those in the Global Network for Advanced Management, students spend a year at Yale SOM in the Global Business and Society program.',
     type: 'programs',
     date: 'January 2025',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_1280/public/2023-05/gbs-students.jpg.webp?itok=3CEp6ZBH',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=Global+Business+and+Society',
     applyUrl: 'https://som.yale.edu/programs/mms-global-business-and-society/admissions',
     programStats: [
       { label: 'Length of program', value: '9 months' },
@@ -169,7 +169,7 @@ const mockResults: SearchResult[] = [
     description: 'A tuition-free program for emerging public education leaders serving in large, urban K-12 school systems in the United States. Students connect deeply with a small cohort while applying hands-on learnings to accelerate outcomes for the students and communities in the school systems where they work.',
     type: 'programs',
     date: 'January 2025',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_1280/public/2023-05/pem-students.jpg.webp?itok=3CEp6ZBH',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=Public+Education+Management',
     applyUrl: 'https://som.yale.edu/programs/mms-public-education-management/admissions',
     programStats: [
       { label: 'Length of program', value: '14 months' },
@@ -183,7 +183,7 @@ const mockResults: SearchResult[] = [
     description: 'A first-of-its-kind, one-year specialized master\'s degree for early- and mid-career employees of central banks and other major regulatory agencies with a mandate to manage systemic risk.',
     type: 'programs',
     date: 'January 2025',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_1280/public/2023-05/systemic-risk-students.jpg.webp?itok=3CEp6ZBH',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=Systemic+Risk',
     applyUrl: 'https://som.yale.edu/programs/mms-systemic-risk/admissions',
     programStats: [
       { label: 'Length of program', value: '9 months' },
@@ -196,7 +196,7 @@ const mockResults: SearchResult[] = [
     description: 'A comprehensive one-year program crafted exclusively for Yale College\'s graduating engineering students who want to gain the business and leadership tool set to launch a new venture, start a career at a major tech player, or create a service that can revolutionize the world.',
     type: 'programs',
     date: 'March 2025',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_1280/public/2023-05/tech-mgmt-students.jpg.webp?itok=3CEp6ZBH',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=Technology+Management',
     applyUrl: 'https://som.yale.edu/programs/masters-technology-management/admissions',
     programStats: [
       { label: 'Length of program', value: '9 months' },
@@ -209,7 +209,7 @@ const mockResults: SearchResult[] = [
     description: 'Combine a Yale MBA with a degree from another Yale graduate program. Options include law, medicine, engineering, global affairs, and environmental management, among others.',
     type: 'programs',
     date: 'January 2025',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_1280/public/2023-05/joint-degree-students.jpg.webp?itok=3CEp6ZBH',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=Joint+Degrees',
     applyUrl: 'https://som.yale.edu/programs/joint-degrees/admissions',
     programStats: [
       { label: 'Length of program', value: '2+ years' },
@@ -222,7 +222,7 @@ const mockResults: SearchResult[] = [
     description: 'Advanced research and scholarly training in accounting, financial economics, marketing, operations, and organizations and management.',
     type: 'programs',
     date: 'April 2024',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_1280/public/2023-05/phd-students.jpg.webp?itok=3CEp6ZBH',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=PhD+Program',
     applyUrl: 'https://gsas.yale.edu/admissions',
     programStats: [
       { label: 'Length of Program', value: '4 to 9 years' },
@@ -236,7 +236,7 @@ const mockResults: SearchResult[] = [
     description: 'A unique opportunity for college seniors to earn an MBA in three years directly after graduation and move more quickly toward their career goals.',
     type: 'programs',
     date: 'February 2025',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_1280/public/2023-05/silver-scholars.jpg.webp?itok=3CEp6ZBH',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=Silver+Scholars',
     applyUrl: 'https://som.yale.edu/programs/mba/admissions/silver-scholars',
     programStats: [
       { label: 'Length of program', value: '3 years' },
@@ -280,34 +280,34 @@ const mockResults: SearchResult[] = [
     type: 'research',
     date: 'February 2025'
   },
-  // Faculty Profiles (hypothetical entries based on typical faculty directory structure)
+  // Faculty Profiles
   {
     title: 'Professor James Choi',
     url: 'https://som.yale.edu/faculty-research/faculty-directory/james-choi',
     description: 'Professor of Finance at Yale School of Management, specializing in behavioral finance, household finance, and retirement savings.',
     type: 'faculty',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_640/public/2022-08/Choi_James.jpg'
+    image: 'https://placehold.co/400x400/00356B/FFFFFF?text=James+Choi'
   },
   {
     title: 'Professor K. Sudhir',
     url: 'https://som.yale.edu/faculty-research/faculty-directory/k-sudhir',
     description: 'James L. Frank Professor of Marketing, Private Enterprise and Management, researching competitive strategy, customer relationship management, and emerging markets.',
     type: 'faculty',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_640/public/2022-08/Sudhir_K.jpg'
+    image: 'https://placehold.co/400x400/00356B/FFFFFF?text=K.+Sudhir'
   },
   {
     title: 'Professor Julia DiBenigno',
     url: 'https://som.yale.edu/faculty-research/faculty-directory/julia-dibenigno',
     description: 'Associate Professor of Organizational Behavior, studying organizational change, employee relations, and healthcare management.',
     type: 'faculty',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_640/public/2022-08/DiBenigno_Julia.jpg'
+    image: 'https://placehold.co/400x400/00356B/FFFFFF?text=Julia+DiBenigno'
   },
   {
     title: 'Professor Robert Shiller',
     url: 'https://som.yale.edu/faculty-research/faculty-directory/robert-shiller',
     description: 'Sterling Professor of Economics and Nobel Prize winner, known for his work on market volatility, asset prices, and behavioral economics.',
     type: 'faculty',
-    image: 'https://som.yale.edu/sites/default/files/styles/square_640/public/2022-08/Shiller_Robert.jpg'
+    image: 'https://placehold.co/400x400/00356B/FFFFFF?text=Robert+Shiller'
   },
   // Case Studies (hypothetical entries based on typical case study directory structure)
   {
@@ -337,7 +337,48 @@ const mockResults: SearchResult[] = [
     description: 'This case explores how Mayo Clinic is leveraging digital technologies to transform healthcare delivery while maintaining its commitment to patient-centered care.',
     type: 'research',
     date: 'January 2025'
-  }
+  },
+  // News items
+  {
+    title: 'Finding Home as a Couple at Yale SOM',
+    url: 'https://som.yale.edu/news/2025/04/finding-home-couple-yale-som',
+    description: 'Ivan Esquinca \'26 and Majo Guemez \'26 reflect on their experience navigating business school as husband and wife.',
+    type: 'news',
+    date: 'April 1, 2025',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=Couple+at+Yale+SOM'
+  },
+  {
+    title: 'Volunteers Teach Business and Life Lessons at New Haven School',
+    url: 'https://som.yale.edu/news/2025/03/volunteers-teach-business-and-life-lessons-new-haven-school',
+    description: 'A group of 25 volunteers from Yale SOM stepped into classrooms at the Roberto Clemente Leadership Academy for Global Awareness Magnet School on February 20 to teach business-based lessons as part of Junior Achievement Day.',
+    type: 'news',
+    date: 'March 21, 2025',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=Volunteer+Group'
+  },
+  {
+    title: 'Prof. Christopher Clayton Receives National Science Foundation Award to Support Geoeconomics Research',
+    url: 'https://som.yale.edu/news/2025/03/clayton-receives-nsf-award',
+    description: 'The award will help fund Clayton\'s scholarship, which focuses on how great powers exert economic pressure on other countries, over the next five years.',
+    type: 'news',
+    date: 'March 7, 2025',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=Prof.+Clayton'
+  },
+  {
+    title: 'Following Up: Tiago Cruz \'17, Johnson & Johnson',
+    url: 'https://som.yale.edu/news/2025/02/following-tiago-cruz-17-johnson-johnson',
+    description: 'As global strategy lead, analytics and data science procurement, at Johnson & Johnson, Master of Advanced Management graduate Tiago Cruz \'17 works to build mutually beneficial relationships between his organization and its suppliers.',
+    type: 'news',
+    date: 'February 20, 2025',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=Tiago+Cruz'
+  },
+  {
+    title: 'Introducing Aysha Haider, SOM\'s New Associate Director for Admissions',
+    url: 'https://som.yale.edu/news/2025/03/introducing-aysha-haider',
+    description: 'Yale SOM welcomes Aysha Haider as the new Associate Director for Admissions, bringing experience in higher education leadership and a passion for diversity in business education.',
+    type: 'news',
+    date: 'March 24, 2025',
+    image: 'https://placehold.co/600x400/00356B/FFFFFF?text=Aysha+Haider'
+  },
 ];
 
 export function useSearch() {
