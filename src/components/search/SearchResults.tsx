@@ -2,11 +2,25 @@ import React from 'react';
 import { SearchResult } from '../../types';
 import { ExternalLink } from 'lucide-react';
 
+// Helper function to convert string to Proper Case
+const toProperCase = (str: string): string => {
+  return str
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+};
+
 interface SearchResultsProps {
   results: SearchResult[];
+  searchQuery?: string;
+  totalResults?: number;
 }
 
-export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
+export const SearchResults: React.FC<SearchResultsProps> = ({ 
+  results, 
+  searchQuery = '', 
+  totalResults = 0 
+}) => {
   if (results.length === 0) {
     return (
       <div className="bg-white p-6 text-center">
@@ -16,8 +30,16 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
     );
   }
 
+  const actualTotal = totalResults || results.length;
+  
   return (
     <div className="space-y-0">
+      {searchQuery && (
+        <div className="mb-4 text-sm text-gray-600">
+          Showing 1-{results.length} of {actualTotal} results {searchQuery ? `for "${searchQuery}"` : ''}
+        </div>
+      )}
+      
       {results.map((result, index) => (
         <div key={index}>
           <div className="py-6 px-0 flex flex-col md:flex-row gap-5">
@@ -33,13 +55,15 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
 
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-3">
-                <span className="text-[11px] font-bold px-2.5 py-1 bg-gray-100 rounded-full text-gray-700 uppercase tracking-wider">
-                  {result.type}
-                </span>
-
                 {result.date && result.type !== 'programs' && result.type !== 'centers' && (
-                  <div className="flex items-center text-gray-600 text-sm font-normal">
-                    {result.date}
+                  <div className="text-gray-600 text-sm">
+                    {result.date} <span className="mx-2">|</span> {toProperCase(result.type)}
+                  </div>
+                )}
+                
+                {(!result.date || result.type === 'programs' || result.type === 'centers') && (
+                  <div className="text-gray-600 text-sm">
+                    {toProperCase(result.type)}
                   </div>
                 )}
               </div>

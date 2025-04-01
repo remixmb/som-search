@@ -17,7 +17,7 @@ export const SortSelector: React.FC<SortSelectorProps> = ({ sortBy, setSortBy })
           id="sort-select"
           value={sortBy}
           onChange={(e) => setSortBy(e.target.value)}
-          className="pl-3 pr-8 py-1.5 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-[#00356B] focus:border-[#00356B] text-sm"
+          className="pl-3 pr-8 py-1.5 border border-gray-300 bg-white focus:outline-none focus:ring-[#00356B] focus:border-[#00356B] text-sm"
         >
           <option value="relevance">Relevance</option>
           <option value="date">Date (newest)</option>

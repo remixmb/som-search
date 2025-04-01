@@ -59,7 +59,11 @@ function App() {
           {/* Results */}
           <div className="md:col-span-3">
             <SortSelector sortBy={sortBy} setSortBy={setSortBy} />
-            <SearchResults results={results} />
+            <SearchResults 
+              results={results} 
+              searchQuery={searchQuery}
+              totalResults={results.length} 
+            />
           </div>
         </div>
       </main>
