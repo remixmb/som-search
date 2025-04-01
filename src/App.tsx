@@ -26,7 +26,7 @@ function App() {
   const {
     expandedItems: expandedCategories,
     toggleItem: toggleCategory,
-  } = useExpandable(['Degree Programs', 'Centers & Initiatives']);
+  } = useExpandable(['Degree Programs']);
 
   return (
     <div className="min-h-screen bg-white">

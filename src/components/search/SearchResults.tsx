@@ -45,7 +45,7 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
                 )}
               </div>
 
-              <h3 className="text-xl font-bold text-[#00356B] mb-2 leading-tight font-neue-haas">
+              <h3 className="text-xl font-bold text-[#000f9f] mb-2 leading-tight font-neue-haas">
                 <a href={result.url} className="hover:underline">
                   {result.title}
                 </a>
@@ -70,9 +70,9 @@ export const SearchResults: React.FC<SearchResultsProps> = ({ results }) => {
               <div className="mt-4 flex flex-wrap gap-3">
                 <a
                   href={result.url}
-                  className="inline-flex items-center text-[#00356B] font-medium text-sm hover:underline font-neue-haas"
+                  className="inline-flex items-center text-[#121212] font-medium text-sm hover:underline font-neue-haas"
                 >
-                  Read more
+                  {result.url}
                 </a>
 
                 {/* Apply button for programs */}
