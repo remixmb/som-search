@@ -89,11 +89,14 @@ export const SearchResults: React.FC<SearchResultsProps> = ({
                   ))}
                 </div>
               )}
+              {/* URL and Apply button section */}
+              {/* Shows the full URL as a clickable link */}
+              {/* For program results, also shows an Apply button with external link icon if applyUrl exists */}
 
               <div className="mt-4 flex flex-wrap gap-3">
                 <a
                   href={result.url}
-                  className="inline-flex items-center text-[#121212] font-medium text-sm hover:underline font-neue-haas"
+                  className="inline-flex items-center text-[#121212] font-medium text-sm hover:underline font-yale"
                 >
                   {result.url}
                 </a>
